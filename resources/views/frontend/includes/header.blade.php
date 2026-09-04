@@ -99,13 +99,13 @@
                             </a>
                         </li>
                         <li class="dynamic-page-list-item">
-                            <a href="shop.html" class="dynamic-page-list-item-link">
+                            <a href="{{ url('/shop') }}" class="dynamic-page-list-item-link">
                                 Shop
                             </a>
                         </li>
                         </li>
                         <li class="dynamic-page-list-item">
-                            <a href="return-process.html" class="dynamic-page-list-item-link">
+                            <a href="{{ url('/refund-policy') }}" class="dynamic-page-list-item-link">
                                 Return Process
                             </a>
                         </li>
