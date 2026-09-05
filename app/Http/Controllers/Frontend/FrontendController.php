@@ -50,5 +50,34 @@ class FrontendController extends Controller
    {
       return view('frontend.contact-us');
    }
+
+   public function viewCart()
+   {
+      return view('frontend.view-cart');
+   }
+
+   public function checkOut()
+   {
+      return view('frontend.checkout');
+   }
+
+   public function orderConfirmation()
+   {
+      return view('frontend.thankyou');
+   }
+
+   public function categoryProduct()
+   {
+      return view('frontend.category-product');
+   }
+   public function subCategoryProduct()
+   {
+      return view('frontend.sub-category-product');
+   }
+
+   public function typeProducts()
+   {
+      return view('frontend.type-products');
+   }
 }
 
