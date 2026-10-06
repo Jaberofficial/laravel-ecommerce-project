@@ -1,371 +1,345 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Customer Login</title>
+    <title>Customer Login | NittyoHub</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --green: #0a8f3c;
+            --green-dark: #064e2b;
+            --green-soft: #e8f6ee;
+            --navy: #0b2a4a;
+            --muted: #6b7a8c;
+            --border: #d5deea;
+        }
+
         body {
-            background: #DCDDDF url(https://cssdeck.com/uploads/media/items/7/7AF2Qzt.png);
-            color: #000;
-            font: 14px Arial;
-            margin: 0 auto;
-            padding: 0;
-            position: relative;
+            font-family: 'Poppins', Arial, sans-serif;
+            background: #eaf3fb;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            color: var(--navy);
         }
 
-        h1 {
-            font-size: 28px;
-        }
+        a { text-decoration: none; }
 
-        h2 {
-            font-size: 26px;
-        }
-
-        h3 {
-            font-size: 18px;
-        }
-
-        h4 {
-            font-size: 16px;
-        }
-
-        h5 {
-            font-size: 14px;
-        }
-
-        h6 {
-            font-size: 12px;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            color: #563D64;
-        }
-
-        small {
-            font-size: 10px;
-        }
-
-        b,
-        strong {
-            font-weight: bold;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .left {
-            float: left;
-        }
-
-        .right {
-            float: right;
-        }
-
-        .alignleft {
-            float: left;
-            margin-right: 15px;
-        }
-
-        .alignright {
-            float: right;
-            margin-left: 15px;
-        }
-
-        .clearfix:after,
-        form:after {
-            content: ".";
-            display: block;
-            height: 0;
-            clear: both;
-            visibility: hidden;
-        }
-
-        .container {
-            margin: 25px auto;
-            position: relative;
-            width: 900px;
-        }
-
-        #content {
-            background: #f9f9f9;
-            background: -moz-linear-gradient(top, rgba(248, 248, 248, 1) 0%, rgba(249, 249, 249, 1) 100%);
-            background: -webkit-linear-gradient(top, rgba(248, 248, 248, 1) 0%, rgba(249, 249, 249, 1) 100%);
-            background: -o-linear-gradient(top, rgba(248, 248, 248, 1) 0%, rgba(249, 249, 249, 1) 100%);
-            background: -ms-linear-gradient(top, rgba(248, 248, 248, 1) 0%, rgba(249, 249, 249, 1) 100%);
-            background: linear-gradient(top, rgba(248, 248, 248, 1) 0%, rgba(249, 249, 249, 1) 100%);
-            filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f8f8f8', endColorstr='#f9f9f9', GradientType=0);
-            -webkit-box-shadow: 0 1px 0 #fff inset;
-            -moz-box-shadow: 0 1px 0 #fff inset;
-            -ms-box-shadow: 0 1px 0 #fff inset;
-            -o-box-shadow: 0 1px 0 #fff inset;
-            box-shadow: 0 1px 0 #fff inset;
-            border: 1px solid #c4c6ca;
-            margin: 0 auto;
-            padding: 25px 0 0;
-            position: relative;
-            text-align: center;
-            text-shadow: 0 1px 0 #fff;
-            width: 400px;
-        }
-
-        #content h1 {
-            color: #7E7E7E;
-            font: bold 25px Helvetica, Arial, sans-serif;
-            letter-spacing: -0.05em;
-            line-height: 20px;
-            margin: 10px 0 30px;
-        }
-
-        #content h1:before,
-        #content h1:after {
-            content: "";
-            height: 1px;
-            position: absolute;
-            top: 10px;
-            width: 27%;
-        }
-
-        #content h1:after {
-            background: rgb(126, 126, 126);
-            background: -moz-linear-gradient(left, rgba(126, 126, 126, 1) 0%, rgba(255, 255, 255, 1) 100%);
-            background: -webkit-linear-gradient(left, rgba(126, 126, 126, 1) 0%, rgba(255, 255, 255, 1) 100%);
-            background: -o-linear-gradient(left, rgba(126, 126, 126, 1) 0%, rgba(255, 255, 255, 1) 100%);
-            background: -ms-linear-gradient(left, rgba(126, 126, 126, 1) 0%, rgba(255, 255, 255, 1) 100%);
-            background: linear-gradient(left, rgba(126, 126, 126, 1) 0%, rgba(255, 255, 255, 1) 100%);
-            right: 0;
-        }
-
-        #content h1:before {
-            background: rgb(126, 126, 126);
-            background: -moz-linear-gradient(right, rgba(126, 126, 126, 1) 0%, rgba(255, 255, 255, 1) 100%);
-            background: -webkit-linear-gradient(right, rgba(126, 126, 126, 1) 0%, rgba(255, 255, 255, 1) 100%);
-            background: -o-linear-gradient(right, rgba(126, 126, 126, 1) 0%, rgba(255, 255, 255, 1) 100%);
-            background: -ms-linear-gradient(right, rgba(126, 126, 126, 1) 0%, rgba(255, 255, 255, 1) 100%);
-            background: linear-gradient(right, rgba(126, 126, 126, 1) 0%, rgba(255, 255, 255, 1) 100%);
-            left: 0;
-        }
-
-        #content:after,
-        #content:before {
-            background: #f9f9f9;
-            background: -moz-linear-gradient(top, rgba(248, 248, 248, 1) 0%, rgba(249, 249, 249, 1) 100%);
-            background: -webkit-linear-gradient(top, rgba(248, 248, 248, 1) 0%, rgba(249, 249, 249, 1) 100%);
-            background: -o-linear-gradient(top, rgba(248, 248, 248, 1) 0%, rgba(249, 249, 249, 1) 100%);
-            background: -ms-linear-gradient(top, rgba(248, 248, 248, 1) 0%, rgba(249, 249, 249, 1) 100%);
-            background: linear-gradient(top, rgba(248, 248, 248, 1) 0%, rgba(249, 249, 249, 1) 100%);
-            filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f8f8f8', endColorstr='#f9f9f9', GradientType=0);
-            border: 1px solid #c4c6ca;
-            content: "";
-            display: block;
-            height: 100%;
-            left: -1px;
-            position: absolute;
+        .login-wrapper {
+            display: flex;
             width: 100%;
+            max-width: 1000px;
+            min-height: 580px;
+            background: #fff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(11, 42, 74, 0.12);
         }
 
-        #content:after {
-            -webkit-transform: rotate(2deg);
-            -moz-transform: rotate(2deg);
-            -ms-transform: rotate(2deg);
-            -o-transform: rotate(2deg);
-            transform: rotate(2deg);
-            top: 0;
-            z-index: -1;
-        }
-
-        #content:before {
-            -webkit-transform: rotate(-3deg);
-            -moz-transform: rotate(-3deg);
-            -ms-transform: rotate(-3deg);
-            -o-transform: rotate(-3deg);
-            transform: rotate(-3deg);
-            top: 0;
-            z-index: -2;
-        }
-
-        #content form {
-            margin: 0 20px;
-            position: relative
-        }
-
-        #content form input[type="email"],
-        #content form input[type="password"] {
-            -webkit-border-radius: 3px;
-            -moz-border-radius: 3px;
-            -ms-border-radius: 3px;
-            -o-border-radius: 3px;
-            border-radius: 3px;
-            -webkit-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
-            -moz-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
-            -ms-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
-            -o-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
-            box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
-            -webkit-transition: all 0.5s ease;
-            -moz-transition: all 0.5s ease;
-            -ms-transition: all 0.5s ease;
-            -o-transition: all 0.5s ease;
-            transition: all 0.5s ease;
-            background: #eae7e7 url(https://cssdeck.com/uploads/media/items/8/8bcLQqF.png) no-repeat;
-            border: 1px solid #c8c8c8;
-            color: #777;
-            font: 13px Helvetica, Arial, sans-serif;
-            margin: 0 0 10px;
-            padding: 15px 10px 15px 40px;
-            width: 80%;
-        }
-
-        #content form input[type="email"]:focus,
-        #content form input[type="password"]:focus {
-            -webkit-box-shadow: 0 0 2px #ed1c24 inset;
-            -moz-box-shadow: 0 0 2px #ed1c24 inset;
-            -ms-box-shadow: 0 0 2px #ed1c24 inset;
-            -o-box-shadow: 0 0 2px #ed1c24 inset;
-            box-shadow: 0 0 2px #ed1c24 inset;
-            background-color: #fff;
-            border: 1px solid #ed1c24;
-            outline: none;
-        }
-
-        #email {
-            background-position: 10px 10px !important
-        }
-
-        #password {
-            background-position: 10px -53px !important
-        }
-
-        #content form input[type="submit"] {
-            background: rgb(254, 231, 154);
-            background: -moz-linear-gradient(top, rgba(254, 231, 154, 1) 0%, rgba(254, 193, 81, 1) 100%);
-            background: -webkit-linear-gradient(top, rgba(254, 231, 154, 1) 0%, rgba(254, 193, 81, 1) 100%);
-            background: -o-linear-gradient(top, rgba(254, 231, 154, 1) 0%, rgba(254, 193, 81, 1) 100%);
-            background: -ms-linear-gradient(top, rgba(254, 231, 154, 1) 0%, rgba(254, 193, 81, 1) 100%);
-            background: linear-gradient(top, rgba(254, 231, 154, 1) 0%, rgba(254, 193, 81, 1) 100%);
-            filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#fee79a', endColorstr='#fec151', GradientType=0);
-            -webkit-border-radius: 30px;
-            -moz-border-radius: 30px;
-            -ms-border-radius: 30px;
-            -o-border-radius: 30px;
-            border-radius: 30px;
-            -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
-            -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
-            -ms-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
-            -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
-            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
-            border: 1px solid #D69E31;
-            color: #85592e;
-            cursor: pointer;
-            float: left;
-            font: bold 15px Helvetica, Arial, sans-serif;
-            height: 35px;
-            margin: 20px 0 35px 15px;
+        /* ---------- Left panel ---------- */
+        .login-left {
+            flex: 1;
             position: relative;
-            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-            width: 120px;
+            overflow: hidden;
+            padding: 36px 34px;
+            color: #fff;
+            background: linear-gradient(160deg, #0b7a37 0%, #064e2b 55%, #03361d 100%);
+        }
+        .login-left::after {
+            content: "";
+            position: absolute;
+            right: -90px;
+            bottom: -110px;
+            width: 330px;
+            height: 330px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.07);
         }
 
-        #content form input[type="submit"]:hover {
-            background: rgb(254, 193, 81);
-            background: -moz-linear-gradient(top, rgba(254, 193, 81, 1) 0%, rgba(254, 231, 154, 1) 100%);
-            background: -webkit-linear-gradient(top, rgba(254, 193, 81, 1) 0%, rgba(254, 231, 154, 1) 100%);
-            background: -o-linear-gradient(top, rgba(254, 193, 81, 1) 0%, rgba(254, 231, 154, 1) 100%);
-            background: -ms-linear-gradient(top, rgba(254, 193, 81, 1) 0%, rgba(254, 231, 154, 1) 100%);
-            background: linear-gradient(top, rgba(254, 193, 81, 1) 0%, rgba(254, 231, 154, 1) 100%);
-            filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#fec151', endColorstr='#fee79a', GradientType=0);
+        /* Logo dark green, tai white card-er upor boshano */
+        .brand {
+            display: inline-block;
+            background: #fff;
+            border-radius: 12px;
+            padding: 6px 14px;
+            line-height: 0;
+        }
+        .brand img { height: 52px; width: auto; display: block; }
+
+        .welcome { margin-top: 44px; }
+        .welcome h2 { font-size: 36px; font-weight: 700; line-height: 1.15; color: #fff; }
+        .welcome h2 span { color: #7ee2a0; }
+        .welcome p { margin-top: 12px; font-size: 14px; line-height: 1.6; opacity: .9; max-width: 300px; }
+
+        .features { list-style: none; margin-top: 30px; position: relative; z-index: 1; }
+        .features li {
+            display: flex; align-items: center; gap: 12px;
+            font-size: 13px; margin-bottom: 16px;
+        }
+        .features i {
+            width: 22px;
+            text-align: center;
+            font-size: 18px;
+            color: #8be0a8;
         }
 
-        #content form div a {
-            color: #004a80;
-            float: right;
-            font-size: 12px;
-            margin: 30px 15px 0 0;
-            text-decoration: underline;
+        .cart-art {
+            position: absolute;
+            right: 28px;
+            bottom: 26px;
+            font-size: 120px;
+            color: rgba(255, 255, 255, 0.16);
+            z-index: 0;
         }
 
-        .button {
-            background: rgb(247, 249, 250);
-            background: -moz-linear-gradient(top, rgba(247, 249, 250, 1) 0%, rgba(240, 240, 240, 1) 100%);
-            background: -webkit-linear-gradient(top, rgba(247, 249, 250, 1) 0%, rgba(240, 240, 240, 1) 100%);
-            background: -o-linear-gradient(top, rgba(247, 249, 250, 1) 0%, rgba(240, 240, 240, 1) 100%);
-            background: -ms-linear-gradient(top, rgba(247, 249, 250, 1) 0%, rgba(240, 240, 240, 1) 100%);
-            background: linear-gradient(top, rgba(247, 249, 250, 1) 0%, rgba(240, 240, 240, 1) 100%);
-            filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f7f9fa', endColorstr='#f0f0f0', GradientType=0);
-            -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
-            -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
-            -ms-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
-            -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
-            -webkit-border-radius: 0 0 5px 5px;
-            -moz-border-radius: 0 0 5px 5px;
-            -o-border-radius: 0 0 5px 5px;
-            -ms-border-radius: 0 0 5px 5px;
-            border-radius: 0 0 5px 5px;
-            border-top: 1px solid #CFD5D9;
-            padding: 15px 0;
+        /* ---------- Right panel ---------- */
+        .login-right {
+            flex: 1;
+            padding: 36px 42px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .button a {
-            background: url(https://cssdeck.com/uploads/media/items/8/8bcLQqF.png) 0 -112px no-repeat;
-            color: #7E7E7E;
-            font-size: 17px;
-            padding: 2px 0 2px 40px;
-            text-decoration: none;
-            -webkit-transition: all 0.3s ease;
-            -moz-transition: all 0.3s ease;
-            -ms-transition: all 0.3s ease;
-            -o-transition: all 0.3s ease;
-            transition: all 0.3s ease;
+        .user-badge {
+            width: 58px; height: 58px;
+            margin: 0 auto 12px;
+            border-radius: 50%;
+            background: var(--green-soft);
+            color: var(--green);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px;
+        }
+        .login-right h1 { text-align: center; font-size: 26px; font-weight: 700; color: var(--navy); }
+        .subtitle {
+            text-align: center;
+            font-size: 13px;
+            color: var(--muted);
+            margin: 8px auto 22px;
+            max-width: 280px;
+            line-height: 1.5;
         }
 
-        .button a:hover {
-            background-position: 0 -135px;
-            color: #00aeef;
+        .login-alert {
+            background: #fdecea;
+            color: #b71c1c;
+            border: 1px solid #f5c2c0;
+            border-radius: 8px;
+            padding: 10px 14px;
+            margin-bottom: 16px;
+            font-size: 13px;
+        }
+        .login-alert p { margin: 0; }
+
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+
+        .input-box { position: relative; }
+        .input-box .icon-left {
+            position: absolute; left: 14px; top: 50%;
+            transform: translateY(-50%);
+            color: #7d8ea3; font-size: 14px;
+        }
+        .input-box input {
+            width: 100%;
+            height: 46px;
+            padding: 0 42px 0 40px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font: 13px 'Poppins', Arial, sans-serif;
+            color: var(--navy);
+            background: #fff;
+            transition: border-color .2s, box-shadow .2s;
+        }
+        .input-box input::placeholder { color: #9aa8b8; }
+        .input-box input:focus {
+            outline: none;
+            border-color: var(--green);
+            box-shadow: 0 0 0 3px rgba(10, 143, 60, 0.15);
+        }
+        .toggle-eye {
+            position: absolute; right: 14px; top: 50%;
+            transform: translateY(-50%);
+            background: none; border: 0; cursor: pointer;
+            color: #7d8ea3; font-size: 14px;
+        }
+        .toggle-eye:focus-visible { outline: 2px solid var(--green); border-radius: 4px; }
+
+        .forgot { text-align: right; margin: -6px 0 16px; }
+        .forgot a { font-size: 12px; font-weight: 600; color: var(--green); }
+        .forgot a:hover { text-decoration: underline; }
+
+        .btn-login {
+            width: 100%; height: 46px;
+            border: 0; border-radius: 8px;
+            background: linear-gradient(90deg, #0a8f3c, #067a32);
+            color: #fff;
+            font: 600 14px 'Poppins', Arial, sans-serif;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            transition: filter .2s;
+        }
+        .btn-login:hover { filter: brightness(1.08); }
+
+        .or-divider {
+            display: flex; align-items: center; gap: 12px;
+            margin: 14px 0;
+            font-size: 11px; color: var(--muted);
+        }
+        .or-divider::before, .or-divider::after {
+            content: ""; flex: 1; height: 1px; background: var(--border);
+        }
+
+        .btn-register {
+            width: 100%; height: 46px;
+            border: 1.5px solid var(--green);
+            border-radius: 8px;
+            color: var(--green);
+            font-size: 14px; font-weight: 600;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            transition: background .2s, color .2s;
+        }
+        .btn-register:hover { background: var(--green); color: #fff; }
+
+        .home-card {
+            margin-top: 12px;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 10px 14px;
+            border-radius: 8px;
+            background: var(--green-soft);
+            color: var(--green);
+            transition: background .2s;
+        }
+        .home-card:hover { background: #d6efe1; }
+        .home-card .left { display: flex; align-items: center; gap: 12px; }
+        .home-card .left > i { font-size: 20px; }
+        .home-card strong { display: block; font-size: 13px; color: var(--green-dark); }
+        .home-card small { display: block; font-size: 11px; color: var(--muted); }
+
+        /* ---------- Mobile ---------- */
+        @media (max-width: 800px) {
+            .login-wrapper { flex-direction: column; }
+            .login-left { padding: 26px 24px; }
+            .welcome { margin-top: 24px; }
+            .welcome h2 { font-size: 28px; }
+            .features, .cart-art { display: none; }
+            .login-right { padding: 28px 22px; }
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <section id="content">
+    <div class="login-wrapper">
+
+        {{-- Left: branding --}}
+        <div class="login-left">
+            <a href="{{ url('/') }}" class="brand">
+                <img src="{{ asset('frontend/assets/images/logo.png') }}" alt="NittyoHub">
+            </a>
+
+            <div class="welcome">
+                <h2>Welcome <span>Back!</span></h2>
+                <p>Sign in to your account and continue shopping your favorite products.</p>
+            </div>
+
+            <ul class="features">
+                <li><i class="fas fa-shopping-basket"></i> Exclusive Offers</li>
+                <li><i class="fas fa-shield-alt"></i> Secure Shopping</li>
+                <li><i class="fas fa-truck"></i> Fast Delivery</li>
+                <li><i class="fas fa-headset"></i> 24/7 Support</li>
+            </ul>
+
+            {{-- Chaile ekhane nijer banner image dite paro:
+                 <img src="{{ asset('frontend/assets/images/login-banner.png') }}" alt="" class="cart-img"> --}}
+            <i class="fas fa-shopping-cart cart-art"></i>
+        </div>
+
+        {{-- Right: form --}}
+        <div class="login-right">
+            <div class="user-badge"><i class="far fa-user"></i></div>
+            <h1>Customer Login</h1>
+            <p class="subtitle">Enter your email and password to login to your account.</p>
+
+            @if ($errors->any())
+                <div class="login-alert">
+                    @foreach ($errors->all() as $error)
+                        <p>{{ $error }}</p>
+                    @endforeach
+                </div>
+            @endif
+
+            @if (session('error'))
+                <div class="login-alert">{{ session('error') }}</div>
+            @endif
+
             <form method="POST" action="{{ url('/customer/login/auth') }}">
                 @csrf
-                <h1>Login Form</h1>
-                <div>
-                    <input type="email" placeholder="Enter Your Email" id="email" name="email" required/>
-                </div>
-                <div>
-                    <input type="password" placeholder="Enter Your Password" id="password" name="password" required/>
-                </div>
-                <div>
-                    <label class="checkbox">
-                        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
-                    </label>
-                </div>
-                <div>
-                    <input type="submit" value="Log in" />
 
-
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-box">
+                        <i class="far fa-envelope icon-left"></i>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address"
+                               value="{{ old('email') }}" autocomplete="email" required autofocus>
+                    </div>
                 </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-box">
+                        <i class="fas fa-lock icon-left"></i>
+                        <input type="password" id="password" name="password" placeholder="Enter your password"
+                               autocomplete="current-password" required>
+                        <button type="button" class="toggle-eye" id="togglePassword" aria-label="Show or hide password">
+                            <i class="far fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="forgot">
+                    <a href="#">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="btn-login">Login <i class="fas fa-arrow-right"></i></button>
+
+                <div class="or-divider">OR</div>
+
+                <a href="{{ url('/customer/registration') }}" class="btn-register">
+                    <i class="fas fa-user-plus"></i> Create New Account
+                </a>
+
+                <a href="{{ url('/') }}" class="home-card">
+                    <span class="left">
+                        <i class="fas fa-home"></i>
+                        <span>
+                            <strong>Home</strong>
+                            <small>Continue shopping without logging in</small>
+                        </span>
+                    </span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </form>
-            <!-- form -->
+        </div>
 
-        </section>
-        <!-- content -->
     </div>
-    <!-- container -->
-</body>
 
+    <script>
+        // Password show / hide
+        const pwd = document.getElementById('password');
+        const eyeBtn = document.getElementById('togglePassword');
+        eyeBtn.addEventListener('click', function () {
+            const show = pwd.type === 'password';
+            pwd.type = show ? 'text' : 'password';
+            this.innerHTML = show ? '<i class="far fa-eye-slash"></i>' : '<i class="far fa-eye"></i>';
+        });
+    </script>
+</body>
 </html>

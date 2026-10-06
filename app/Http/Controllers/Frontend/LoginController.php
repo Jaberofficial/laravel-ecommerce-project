@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -51,12 +53,47 @@ class LoginController extends Controller
     {
         if(Auth::attempt(['email'=> $request->email, 'password'=> $request->password]))
         {
-            return redirect('/customer/dashboard');
+            if(Auth::user()->role == 'customer'){
+                return redirect('/customer/dashboard');
+
+            }
+            else{
+                $role = Auth::user()->role;
+                Auth::logout();
+                if($role == 'admin'){
+                    return redirect('/admin/login');
+                }
+                elseif($role == 'employee'){
+                    return redirect('/employee/login');
+                }
+            }
+            
         }
 
         else{
-            return redirect()->back();
+            return redirect()->back()->with('error', 'Incorrect email or password.');
+            
         }
+    }
+    public function customerRegistration()
+    {
+        return view('auth.login.customer-registration');
+    }
+
+    public function customerRegistrationStore(Request $request)
+    {
+        $customer = new User();
+        $customer->name = $request->name;
+        $customer->phone = $request->phone;
+        $customer->email = $request->email;
+        $customer->password = Hash::make($request->password);
+        $customer->role = 'customer';
+
+        $customer->save();
+
+        toastr()->success('Account Created Successfully.');
+        return redirect('customer/login');
+
     }
 
 }

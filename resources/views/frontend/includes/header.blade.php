@@ -1,7 +1,7 @@
 <header class="header-section">
     <div class="container">
         <div class="header-top-wrapper">
-            <a href="{{ url('/') }}" class="brand-logo-outer">
+            <a href="{{ url('/customer/login') }}" class="brand-logo-outer">
                 <img src="{{ asset('frontend/assets/images/logo.png') }}" alt="Logo">
             </a>
             <div class="search-form-outer">
@@ -14,6 +14,23 @@
                 <div class="res-search">
                     <i class="fas fa-search"></i>
                 </div>
+@if (Auth::user() && Auth::user()->role == 'customer')
+    <a href="{{ url('/customer/dashboard') }}" class="header-top-right-item-link">
+        <span class="icon-outer">
+            <i class="fas fa-user-circle"></i>
+        </span>
+        Dashboard
+    </a>
+
+    @else
+        <a href="{{ url('/customer/login') }}" class="header-top-right-item-link">
+        <span class="icon-outer">
+            <i class="fas fa-sign-in-alt"></i>
+        </span>
+        Login
+    </a>
+    
+@endif
                 <div class="header-top-right-item dropdown">
                     <div class="header-top-right-item-link">
                         <span class="icon-outer">
