@@ -10,12 +10,12 @@
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">Add New Category</h3>
+                <h3 class="mb-0">Edit Category</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Add Category</li>
+                  <li class="breadcrumb-item active" aria-current="page">Edit Category</li>
                 </ol>
               </div>
             </div>
@@ -39,11 +39,11 @@
                 <div class="card card-primary card-outline mb-4">
                   <!--begin::Header-->
                   <div class="card-header">
-                    <div class="card-title">Input Category Data</div>
+                    <div class="card-title">Update Category Data</div>
                   </div>
                   <!--end::Header-->
                   <!--begin::Form-->
-                  <form action="{{ url('/manage/category-store') }}" method="POST" enctype="multipart/form-data">
+                  <form action="{{ url('/manage/category-update/'.$category->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!--begin::Body-->
                     <div class="card-body">
@@ -51,14 +51,15 @@
                         <label for="name" class="form-label">Category Name</label>
                         <input
                           type="text"
-                          class="form-control" name="name"
+                          class="form-control" value="{{ $category->name }}" name="name"
                           id="name" required
                         />
                       </div>
                       <div class="input-group mb-3">
-                        <input type="file" class="form-control" name="image" id="inputGroupFile02" accept="image/*" required />
-                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                        <input type="file" class="form-control" name="image" id="inputGroupFile02" accept="image/*" />
+                        <label class="input-group-text" for="inputGroupFile02">Update</label>
                       </div>
+                <img src="{{ $category->image }}" height="100" width="100">
                     </div>
                     <!--end::Body-->
                     <!--begin::Footer-->
