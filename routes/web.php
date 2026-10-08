@@ -57,7 +57,7 @@ Route::get('/manage/category-delete/{id}', [CategoryController::class, 'delete']
  //SubCategory Routes
 Route::get('/manage/subcategory-create',[SubCategoryController::class, 'create']);
 Route::post('/manage/subcategory-store', [SubCategoryController::class, 'store']);
-Route::get('/manage/category-list', [SubCategoryController::class, 'list']);
+Route::get('/manage/subcategory-list', [SubCategoryController::class, 'list']);
 Route::get('/manage/subcategory-edit/{id}', [SubCategoryController::class, 'edit']);
 Route::post('/manage/subcategory-update/{id}', [SubCategoryController::class, 'update']);
 Route::get('/manage/subcategory-delete/{id}', [SubCategoryController::class, 'delete']);

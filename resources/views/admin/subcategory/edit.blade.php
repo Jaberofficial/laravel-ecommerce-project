@@ -10,12 +10,12 @@
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">Add New SubCategory</h3>
+                <h3 class="mb-0">Edit SubCategory</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Add SubCategory</li>
+                  <li class="breadcrumb-item active" aria-current="page">Edit SubCategory</li>
                 </ol>
               </div>
             </div>
@@ -39,11 +39,11 @@
                 <div class="card card-primary card-outline mb-4">
                   <!--begin::Header-->
                   <div class="card-header">
-                    <div class="card-title">Input SubCategory Data</div>
+                    <div class="card-title">Edit SubCategory Data</div>
                   </div>
                   <!--end::Header-->
                   <!--begin::Form-->
-                  <form action="{{ url('/manage/subcategory-store') }}" method="POST" enctype="multipart/form-data">
+                  <form action="{{ url('/manage/subcategory-update/'.$subCategory->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!--begin::Body-->
                     <div class="card-body">
@@ -52,17 +52,18 @@
                         <select name="cat_id" id="cat_id" class="form-control" required>
                           @foreach ($categories as $category)
                             
-                          <option value="{{$category->id}}">{{$category->name}}</option>
+                          <option value="{{$category->id}}" @if ($category->id == $subCategory->cat_id) selected
+                              @endif >{{$category->name}}</option>
                           @endforeach
 
 
                         </select>
                       </div>
                       <div class="mb-3">
-                        <label for="name" class="form-label">SUbCategory Name</label>
+                        <label for="name" class="form-label">SubCategory Name</label>
                         <input
                           type="text"
-                          class="form-control" name="name"
+                          class="form-control" value="{{$subCategory->name }}"  name="name"
                           id="name" required
                         />
                       </div>
@@ -70,7 +71,7 @@
                     <!--end::Body-->
                     <!--begin::Footer-->
                     <div class="card-footer">
-                      <button type="submit" class="btn btn-primary ">Submit</button>
+                      <button type="submit" class="btn btn-primary ">Update</button>
                     </div>
                     <!--end::Footer-->
                   </form>
