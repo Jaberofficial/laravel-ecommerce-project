@@ -71,4 +71,6 @@ Route::middleware(['role:employee'])->group(function(){
 Route::middleware(['role:customer'])->group(function(){
     Route::get('/customer/dashboard',[CustomerController::class, 'dashboard']);
     Route::get('/customer/logout', [CustomerController::class, 'customerLogout']);
+    Route::get('/customer/profile-view', [CustomerController::class, 'customerProfileView']);
+    Route::Post('/customer/profile-update', [CustomerController::class, 'customerProfileUpdate']);
 });
