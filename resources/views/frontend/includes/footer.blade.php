@@ -2,7 +2,7 @@
     <div class="footer__top-wrapper">
         <div class="container">
             <a href="index.html" class="footer__brand-logo-outer">
-                <img src="{{ asset('frontend/assets/images/logo.png') }}" class="footer__brand-logo-inner" />
+                <img src="{{ asset('frontend/assets/images/nittyohub-logo.png') }}" class="footer__brand-logo-inner" />
             </a>
         </div>
     </div>
