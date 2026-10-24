@@ -2,7 +2,7 @@
     <div class="container">
         <div class="header-top-wrapper">
             <a href="{{ url('/customer/login') }}" class="brand-logo-outer">
-                <img src="{{ asset('frontend/assets/images/nittyohub-logo1.png') }}" alt="Logo">
+                <img src="{{ asset('frontend/assets/images/nittyohub-logo.png') }}" alt="Logo">
             </a>
             <div class="search-form-outer">
                 <form action="" method="GET" class="form-group search-form">

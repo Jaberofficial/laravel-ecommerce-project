@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Login | NittyoHub</title>
 
+      {{-- Favicon --}}
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('customer/assets/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('customer/assets/favicon/favicon-16x16.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('customer/assets/favicon/favicon-180x180.png') }}">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         :root {
             --green: #0a8f3c;
@@ -31,7 +41,9 @@
             color: var(--navy);
         }
 
-        a { text-decoration: none; }
+        a {
+            text-decoration: none;
+        }
 
         .login-wrapper {
             display: flex;
@@ -53,6 +65,7 @@
             color: #fff;
             background: linear-gradient(160deg, #0b7a37 0%, #064e2b 55%, #03361d 100%);
         }
+
         .login-left::after {
             content: "";
             position: absolute;
@@ -72,18 +85,51 @@
             padding: 6px 14px;
             line-height: 0;
         }
-        .brand img { height: 52px; width: auto; display: block; }
 
-        .welcome { margin-top: 44px; }
-        .welcome h2 { font-size: 36px; font-weight: 700; line-height: 1.15; color: #fff; }
-        .welcome h2 span { color: #7ee2a0; }
-        .welcome p { margin-top: 12px; font-size: 14px; line-height: 1.6; opacity: .9; max-width: 300px; }
-
-        .features { list-style: none; margin-top: 30px; position: relative; z-index: 1; }
-        .features li {
-            display: flex; align-items: center; gap: 12px;
-            font-size: 13px; margin-bottom: 16px;
+        .brand img {
+            height: 52px;
+            width: auto;
+            display: block;
         }
+
+        .welcome {
+            margin-top: 44px;
+        }
+
+        .welcome h2 {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.15;
+            color: #fff;
+        }
+
+        .welcome h2 span {
+            color: #7ee2a0;
+        }
+
+        .welcome p {
+            margin-top: 12px;
+            font-size: 14px;
+            line-height: 1.6;
+            opacity: .9;
+            max-width: 300px;
+        }
+
+        .features {
+            list-style: none;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            margin-bottom: 16px;
+        }
+
         .features i {
             width: 22px;
             text-align: center;
@@ -110,15 +156,25 @@
         }
 
         .user-badge {
-            width: 58px; height: 58px;
+            width: 58px;
+            height: 58px;
             margin: 0 auto 12px;
             border-radius: 50%;
             background: var(--green-soft);
             color: var(--green);
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 24px;
         }
-        .login-right h1 { text-align: center; font-size: 26px; font-weight: 700; color: var(--navy); }
+
+        .login-right h1 {
+            text-align: center;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
         .subtitle {
             text-align: center;
             font-size: 13px;
@@ -137,17 +193,35 @@
             margin-bottom: 16px;
             font-size: 13px;
         }
-        .login-alert p { margin: 0; }
 
-        .form-group { margin-bottom: 16px; }
-        .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
-
-        .input-box { position: relative; }
-        .input-box .icon-left {
-            position: absolute; left: 14px; top: 50%;
-            transform: translateY(-50%);
-            color: #7d8ea3; font-size: 14px;
+        .login-alert p {
+            margin: 0;
         }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .input-box {
+            position: relative;
+        }
+
+        .input-box .icon-left {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #7d8ea3;
+            font-size: 14px;
+        }
+
         .input-box input {
             width: 100%;
             height: 46px;
@@ -159,79 +233,181 @@
             background: #fff;
             transition: border-color .2s, box-shadow .2s;
         }
-        .input-box input::placeholder { color: #9aa8b8; }
+
+        .input-box input::placeholder {
+            color: #9aa8b8;
+        }
+
         .input-box input:focus {
             outline: none;
             border-color: var(--green);
             box-shadow: 0 0 0 3px rgba(10, 143, 60, 0.15);
         }
-        .toggle-eye {
-            position: absolute; right: 14px; top: 50%;
-            transform: translateY(-50%);
-            background: none; border: 0; cursor: pointer;
-            color: #7d8ea3; font-size: 14px;
-        }
-        .toggle-eye:focus-visible { outline: 2px solid var(--green); border-radius: 4px; }
 
-        .forgot { text-align: right; margin: -6px 0 16px; }
-        .forgot a { font-size: 12px; font-weight: 600; color: var(--green); }
-        .forgot a:hover { text-decoration: underline; }
+        .toggle-eye {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: 0;
+            cursor: pointer;
+            color: #7d8ea3;
+            font-size: 14px;
+        }
+
+        .toggle-eye:focus-visible {
+            outline: 2px solid var(--green);
+            border-radius: 4px;
+        }
+
+        .forgot {
+            text-align: right;
+            margin: -6px 0 16px;
+        }
+
+        .forgot a {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--green);
+        }
+
+        .forgot a:hover {
+            text-decoration: underline;
+        }
 
         .btn-login {
-            width: 100%; height: 46px;
-            border: 0; border-radius: 8px;
+            width: 100%;
+            height: 46px;
+            border: 0;
+            border-radius: 8px;
             background: linear-gradient(90deg, #0a8f3c, #067a32);
             color: #fff;
             font: 600 14px 'Poppins', Arial, sans-serif;
             cursor: pointer;
-            display: flex; align-items: center; justify-content: center; gap: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             transition: filter .2s;
         }
-        .btn-login:hover { filter: brightness(1.08); }
+
+        .btn-login:hover {
+            filter: brightness(1.08);
+        }
 
         .or-divider {
-            display: flex; align-items: center; gap: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
             margin: 14px 0;
-            font-size: 11px; color: var(--muted);
+            font-size: 11px;
+            color: var(--muted);
         }
-        .or-divider::before, .or-divider::after {
-            content: ""; flex: 1; height: 1px; background: var(--border);
+
+        .or-divider::before,
+        .or-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border);
         }
 
         .btn-register {
-            width: 100%; height: 46px;
+            width: 100%;
+            height: 46px;
             border: 1.5px solid var(--green);
             border-radius: 8px;
             color: var(--green);
-            font-size: 14px; font-weight: 600;
-            display: flex; align-items: center; justify-content: center; gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             transition: background .2s, color .2s;
         }
-        .btn-register:hover { background: var(--green); color: #fff; }
+
+        .btn-register:hover {
+            background: var(--green);
+            color: #fff;
+        }
 
         .home-card {
             margin-top: 12px;
-            display: flex; align-items: center; justify-content: space-between;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             padding: 10px 14px;
             border-radius: 8px;
             background: var(--green-soft);
             color: var(--green);
             transition: background .2s;
         }
-        .home-card:hover { background: #d6efe1; }
-        .home-card .left { display: flex; align-items: center; gap: 12px; }
-        .home-card .left > i { font-size: 20px; }
-        .home-card strong { display: block; font-size: 13px; color: var(--green-dark); }
-        .home-card small { display: block; font-size: 11px; color: var(--muted); }
+
+        .home-card:hover {
+            background: #d6efe1;
+        }
+
+        .home-card .left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .home-card .left>i {
+            font-size: 20px;
+        }
+
+        .home-card strong {
+            display: block;
+            font-size: 13px;
+            color: var(--green-dark);
+        }
+
+        .home-card small {
+            display: block;
+            font-size: 11px;
+            color: var(--muted);
+        }
 
         /* ---------- Mobile ---------- */
         @media (max-width: 800px) {
-            .login-wrapper { flex-direction: column; }
-            .login-left { padding: 26px 24px; }
-            .welcome { margin-top: 24px; }
-            .welcome h2 { font-size: 28px; }
-            .features, .cart-art { display: none; }
-            .login-right { padding: 28px 22px; }
+            .login-wrapper {
+                flex-direction: column;
+            }
+
+            .login-left {
+                padding: 26px 24px;
+            }
+
+            .welcome {
+                margin-top: 24px;
+            }
+
+            .welcome h2 {
+                font-size: 28px;
+            }
+
+            .features,
+            .cart-art {
+                display: none;
+            }
+
+            .login-right {
+                padding: 28px 22px;
+            }
+        }
+
+        .cart-art {
+            position: absolute;
+            right: 28px;
+            bottom: 26px;
+            width: 150px;
+            height: auto;
+            opacity: .35;
+            z-index: 0;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -242,7 +418,7 @@
         {{-- Left: branding --}}
         <div class="login-left">
             <a href="{{ url('/') }}" class="brand">
-                <img src="{{ asset('frontend/assets/images/logo.png') }}" alt="NittyoHub">
+                <img src="{{ asset('frontend/assets/images/nittyohub-logo.png') }}" alt="NittyoHub">
             </a>
 
             <div class="welcome">
@@ -258,8 +434,10 @@
             </ul>
 
             {{-- Chaile ekhane nijer banner image dite paro:
-                 <img src="{{ asset('frontend/assets/images/login-banner.png') }}" alt="" class="cart-img"> --}}
-            <i class="fas fa-shopping-cart cart-art"></i>
+            <img src="{{ asset('frontend/assets/images/login-banner.png') }}" alt="" class="cart-img"> --}}
+            {{-- <i class="fas fa-shopping-cart cart-art"></i> --}}
+            <img src="{{ asset('frontend/assets/images/nittyohub-watermark-light.png') }}" alt="NittyoHub"
+                class="cart-art">
         </div>
 
         {{-- Right: form --}}
@@ -288,7 +466,7 @@
                     <div class="input-box">
                         <i class="far fa-envelope icon-left"></i>
                         <input type="email" id="email" name="email" placeholder="Enter your email address"
-                               value="{{ old('email') }}" autocomplete="email" required autofocus>
+                            value="{{ old('email') }}" autocomplete="email" required autofocus>
                     </div>
                 </div>
 
@@ -297,7 +475,7 @@
                     <div class="input-box">
                         <i class="fas fa-lock icon-left"></i>
                         <input type="password" id="password" name="password" placeholder="Enter your password"
-                               autocomplete="current-password" required>
+                            autocomplete="current-password" required>
                         <button type="button" class="toggle-eye" id="togglePassword" aria-label="Show or hide password">
                             <i class="far fa-eye"></i>
                         </button>
@@ -342,4 +520,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -3,7 +3,7 @@
         <div class="sidebar-brand">
             <img 
         class="sidebar-brand-full" 
-        src="{{ asset('customer/assets/brand/logo.png') }}" 
+        src="{{ asset('customer/assets/brand/nittyohub-logo3.png') }}" 
         alt="Nittyo Hub"
         width="120"
         height="32"

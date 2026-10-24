@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\User as AuthUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
@@ -53,5 +54,45 @@ unlink('customer/profile/'.basename($authUser->image));
          toastr()->success('Profile Updated Successfully.');
          return redirect()->back();
 
+    }
+
+    public function customerCredentialView()
+    {
+        $authUser = Auth::user();
+        return view('customer.profile.credential-view', compact('authUser'));
+    }
+
+    public function customerCredentialUpdate(Request $request)
+    {
+       $authUserId = Auth::user()->id;
+
+        $authUser = User::find($authUserId);
+
+        if(isset($request->email))
+            {
+                $authUser->email = $request->email;
+            }
+
+            if(isset($request->old_password) && isset($request->password))
+                {
+                    if(Hash::check($request->old_password, $authUser->password))
+                        {
+                            $authUser->password = Hash::make($request->password);
+
+                        }
+                        else
+                        {
+                            toastr()->error("Old Password Doesn't Match");
+                            return redirect()->back();
+
+                        }
+                }
+
+                $authUser->save();
+                Auth::logout();
+
+                toastr()->success("Credential Updated Successfully");
+
+                return redirect()->back();
     }
 }

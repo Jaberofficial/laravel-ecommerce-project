@@ -1,3 +1,20 @@
+<style>
+    .header .avatar.avatar-md {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+    .header .avatar.avatar-md .avatar-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        display: block;
+    }
+</style>
+
 <header class="header header-sticky p-0 mb-4">
   <div class="container-fluid border-bottom px-4 d-flex align-items-center justify-content-between">
 
@@ -90,7 +107,7 @@
           <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-user"></use>
         </svg> Profile
       </a>
-      <a class="nav-link text-body d-flex align-items-center py-2 px-2" href="{{ url('/customer/profile-update') }}">
+      <a class="nav-link text-body d-flex align-items-center py-2 px-2" href="{{ url('/customer/view-credentials') }}">
         <svg class="icon me-2">
           <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-settings"></use>
         </svg> Credential Settings
