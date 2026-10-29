@@ -97,9 +97,9 @@
                                                     @endif
                                                     {{-- Edit /Delete Button --}}
 
-                                                    <a href="#" class="btn btn-primary btn-sm me-1" title="Edit"><i
+                                                    <a href="{{ url('/manage/product-edit/'.$product->id) }}" class="btn btn-primary btn-sm me-1" title="Edit"><i
                                                             class="bi bi-pencil-square"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm me-1"
+                                                    <a href="{{ url('/manage/product-delete/'.$product->id) }}" class="btn btn-danger btn-sm me-1"
                                                         onclick="return confirm('Are you sure you want to delete this?')"
                                                         title="Delete"><i class="bi bi-trash"></i></a>
 
