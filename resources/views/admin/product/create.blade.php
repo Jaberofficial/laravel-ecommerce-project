@@ -123,7 +123,7 @@
                                                 <div class="d-flex gap-2 align-items-center">
                                                     <input type="text" class="form-control " name="color_name[]"
                                                         placeholder="Color Name" id="color_name"
-                                                        value="{{ old('color_name') }}" />
+                                                        />
 
                                                     <button type="button" class="btn btn-primary flex-shrink-0"
                                                         id="add_color">
@@ -142,7 +142,7 @@
                                                 <div class="d-flex gap-2 align-items-center">
                                                     <input type="text" class="form-control " name="size_name[]"
                                                         placeholder="Size Name" id="size_name"
-                                                        value="{{ old('size_name') }}" />
+                                                         />
 
                                                     <button type="button" class="btn btn-primary flex-shrink-0"
                                                         id="add_size">
@@ -328,7 +328,7 @@
     <script>
         $(document).ready(function () {
             $('#add_color').click(function () {
-                $(this).before('<input type="text" class="form-control" name="color_name[]" placeholder="Color Name" id="color_name" value="{{ old('color_name') }}" />')
+                $(this).before('<input type="text" class="form-control" name="color_name[]" placeholder="Color Name" id="color_name" />')
 
             })
         })
@@ -339,7 +339,7 @@
     <script>
         $(document).ready(function(){
             $('#add_size').click(function(){
-                $(this).before('<input type="text" class="form-control " name="size_name[]" placeholder="Size Name" id="size_name" value="{{ old('size_name')}}" />')
+                $(this).before('<input type="text" class="form-control " name="size_name[]" placeholder="Size Name" id="size_name"  />')
             })
         })
     </script>

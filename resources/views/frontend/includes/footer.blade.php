@@ -136,7 +136,7 @@
         <div class="container">
             <p class="footer__bottom-text">
                 © 2026, All rights reserved
-                <strong class="text-brand">Nitto Mart</strong>
+                <strong class="text-brand">Nitto Hub</strong>
             </p>
         </div>
     </div>
