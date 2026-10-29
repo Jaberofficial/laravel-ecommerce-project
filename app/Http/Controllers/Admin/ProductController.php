@@ -152,7 +152,7 @@ class ProductController extends Controller
 
     public function list()
     {
-        $products = Product::orderBy('id', 'desc')->with('categoty', 'subcategory')->paginate(50);
+        $products = Product::orderBy('id', 'desc')->with('category', 'subcategory')->paginate(50);
        
         return view('admin.product.list', compact('products'));
     }

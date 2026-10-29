@@ -65,10 +65,10 @@
                                                     {{$product->product_type}}
                                                 </td>
                                                 <td>
-                                                    {{$product->categoty->name}}
+                                                    {{$product->category->name}}
                                                 </td>
                                                 <td>
-                                                    {{$product->subcategory->name}}
+                                                    {{$product->subcategory->name ?? 'N/A'}}
                                                 </td>
                                                 <td>
                                                     {{$product->buying_price}}
