@@ -5,12 +5,15 @@
         <!--begin::Brand Link-->
         <a href="/admin/dashboard" class="brand-link">
             <!--begin::Brand Image-->
-            <img src="{{ asset('admin/assets/img/nittyohub-logo.png') }}" alt="AdminLTE Logo" class="brand-image opacity-75 shadow" />
+            <img src="{{ asset('admin/assets/img/logo-dark-bg.svg') }}" alt="Nittyo Hub" class="sidebar-brand-full" width="38"
+        height="38" />
             <!--end::Brand Image-->
             <!--begin::Brand Text-->
             <span class="brand-text fw-light">Admin</span>
             <!--end::Brand Text-->
         </a>
+
+
         <!--end::Brand Link-->
     </div>
     <!--end::Sidebar Brand-->

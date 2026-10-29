@@ -1,3 +1,6 @@
+  <!-- Favicon -->
+<link rel="icon" type="image/png" href="{{ asset('admin/assets/img/logo-light-bg.svg') }}">
+  
   <!--begin::Accessibility Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <meta name="color-scheme" content="light dark" />

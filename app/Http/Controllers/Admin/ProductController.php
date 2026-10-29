@@ -259,36 +259,44 @@ unlink('admin/product/'.basename($product->image));
     $product->save();
 
 
-    //Add Colors..
+  
+// Add Colors..
+if (isset($request->color_name)) {
 
-    if(isset($request->color_name) && $request->color_name[0] != null)
-    {
-        Color::where('product_id', $id)->delete();
-        foreach($request->color_name as $singleColor)
-            {
-                $color = new Color();
+    $colors = array_filter($request->color_name, function ($colorName) {
+        return $colorName !== null && trim($colorName) !== '';
+    });
 
-                $color->product_id = $product->id;
-                $color->color_name = $singleColor;
+    Color::where('product_id', $id)->delete();
 
-                $color->save();
-            }
+    foreach ($colors as $singleColor) {
+
+        $color = new Color();
+
+        $color->product_id = $product->id;
+        $color->color_name = trim($singleColor);
+
+        $color->save();
     }
-//Add Sizes..
-    if(isset($request->size_name) && $request->size_name[0] != null)
-    {
-         Size::where('product_id', $id)->delete();
-        foreach($request->size_name as $singleSize)
-            {
-                $size = new Size();
+}
+// Add Sizes..
+if (isset($request->size_name)) {
 
-                $size->product_id = $product->id;
-                $size->size_name = $singleSize;
+    Size::where('product_id', $id)->delete();
 
-                $size->save();
-            }
+    foreach ($request->size_name as $singleSize) {
+
+        if ($singleSize != null && trim($singleSize) != '') {
+
+            $size = new Size();
+
+            $size->product_id = $product->id;
+            $size->size_name = trim($singleSize);
+
+            $size->save();
+        }
     }
-
+}
     //Gallery Images...
 
 
