@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Customer\CustomerController;
 use App\Http\Controllers\Employee\EmployeeController;
@@ -73,6 +74,7 @@ Route::get('/manage/product-delete/{id}', [ProductController::class, 'delete']);
 Route::get('/manage/product-status/{id}', [ProductController::class, 'changeStatus']);
 
 
+
 });
 
 
@@ -89,4 +91,15 @@ Route::middleware(['role:customer'])->group(function(){
     Route::Post('/customer/profile-update', [CustomerController::class, 'customerProfileUpdate']);
     Route::get('/customer/view-credentials', [CustomerController::class, 'customerCredentialView']);
     Route::post('/customer/update-credentials', [CustomerController::class, 'customerCredentialUpdate']);
+    
+});
+
+
+
+Route::middleware(['role:employee,admin'])->group(function(){
+
+ //Settings Routes
+Route::get('/manage/website-settings',[SettingController::class, 'manageSetting']);
+Route::post('/manage/website-settings/update',[SettingController::class, 'updateSetting']);
+
 });
