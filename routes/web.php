@@ -22,6 +22,7 @@ Route::get('/refund-policy',[FrontendController::class, 'refundPolicy']);
 Route::get('/payment-policy',[FrontendController::class, 'paymentPolicy']);
 Route::get('/about-us',[FrontendController::class, 'aboutUs']);
 Route::get('/contact-us',[FrontendController::class, 'contactUs']);
+Route::post('/contact-message/store',[FrontendController::class, 'contactMessageStore']);
 Route::get('/view-cart',[FrontendController::class, 'viewCart']);
 Route::get('/checkout',[FrontendController::class, 'checkOut']);
 Route::get('/thankyou',[FrontendController::class, 'orderConfirmation']);
@@ -101,5 +102,9 @@ Route::middleware(['role:employee,admin'])->group(function(){
  //Settings Routes
 Route::get('/manage/website-settings',[SettingController::class, 'manageSetting']);
 Route::post('/manage/website-settings/update',[SettingController::class, 'updateSetting']);
+
+
+Route::get('/manage/website-policy',[SettingController::class, 'managePolicy']);
+Route::post('/manage/website-policy/update',[SettingController::class, 'updatePolicy']);
 
 });

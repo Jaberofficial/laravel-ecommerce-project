@@ -2,7 +2,7 @@
     <div class="footer__top-wrapper">
         <div class="container">
             <a href="index.html" class="footer__brand-logo-outer">
-                <img src="{{ asset('frontend/assets/images/nittyohub-logo.png') }}" class="footer__brand-logo-inner" />
+                <img src="{{$globalSiteSettings->logo}}" class="footer__brand-logo-inner" />
             </a>
         </div>
     </div>
@@ -49,7 +49,7 @@
                                     Address:
                                 </p>
                                 <p class="footer__contact-info-list-item-value">
-                                    Uttara, Dhaka
+                                   {{$globalSiteSettings->address}}
                                 </p>
                             </li>
                             <li class="footer__contact-info-list-item">
@@ -57,7 +57,7 @@
                                     Phone:
                                 </p>
                                 <a href="tel:+8801882138833" class="footer__contact-info-list-item-value">
-                                    +8801882138833
+                                    {{$globalSiteSettings->phone}}
                                 </a>
                             </li>
                             <li class="footer__contact-info-list-item">
@@ -65,7 +65,7 @@
                                     Email:
                                 </p>
                                 <a href="mailto:info@gmail.com" class="footer__contact-info-list-item-value">
-                                    info@gmail.com
+                                    {{$globalSiteSettings->email}}
                                 </a>
                             </li>
                         </ul>
@@ -107,22 +107,22 @@
                         </h4>
                         <ul class="footer__social-list">
                             <li class="footer__social-list-item">
-                                <a href="#" class="footer__social-list-item-lisk">
+                                <a href="{{$globalSiteSettings->facebook}}" class="footer__social-list-item-lisk">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
                             </li>
                             <li class="footer__social-list-item">
-                                <a href="#" class="footer__social-list-item-lisk">
+                                <a href="{{$globalSiteSettings->twitter}}" class="footer__social-list-item-lisk">
                                     <i class="fab fa-twitter"></i>
                                 </a>
                             </li>
                             <li class="footer__social-list-item">
-                                <a href="#" class="footer__social-list-item-lisk">
+                                <a href="{{$globalSiteSettings->instagram}}" class="footer__social-list-item-lisk">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                             </li>
                             <li class="footer__social-list-item">
-                                <a href="#" class="footer__social-list-item-lisk">
+                                <a href{{$globalSiteSettings->youtube}}" class="footer__social-list-item-lisk">
                                     <i class="fab fa-youtube"></i>
                                 </a>
                             </li>
