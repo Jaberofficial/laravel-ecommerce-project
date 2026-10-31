@@ -98,7 +98,7 @@
 					@foreach ($hotProducts as $product)
 										<div class="product__item-outer">
 						<div class="product__item-image-outer">
-							<a href="{{ url('/product-details/'.$product->id) }}" class="product__item-image-inner">
+							<a href="{{ url('/product-details/'.$product->slug) }}" class="product__item-image-inner">
 								<img src="{{$product->image}}" alt="Product Image" />
 							</a>
 							<div class="product__item-add-cart-btn-outer">
@@ -113,7 +113,7 @@
 							</div>
 						</div>
 						<div class="product__item-info-outer">
-							<a href="{{ url('/product-details/'.$product->id) }}" class="product__item-name">
+							<a href="{{ url('/product-details/'.$product->slug) }}" class="product__item-name">
 								{{ $product->name }}
 							</a>
 							<div class="product__item-price-outer">
@@ -147,7 +147,7 @@
 					@foreach ($newProducts as $product)
 						<div class="product__item-outer">
 						<div class="product__item-image-outer">
-							<a href="{{ url('/product-details/'.$product->id) }}" class="product__item-image-inner">
+							<a href="{{ url('/product-details/'.$product->slug) }}" class="product__item-image-inner">
 								<img src="{{ $product->image }}" alt="Product Image" />
 							</a>
 							<div class="product__item-add-cart-btn-outer">
@@ -162,7 +162,7 @@
 							</div>
 						</div>
 						<div class="product__item-info-outer">
-							<a href="{{ url('/product-details/'.$product->id) }}" class="product__item-name">
+							<a href="{{ url('/product-details/'.$product->slug) }}" class="product__item-name">
 								{{ $product->name }}
 							</a>
 							<div class="product__item-price-outer">
@@ -197,7 +197,7 @@
 					@foreach ($regulartProducts as $product )
 											<div class="product__item-outer">
 						<div class="product__item-image-outer">
-							<a href="{{ url('/product-details/'.$product->id) }}" class="product__item-image-inner">
+							<a href="{{ url('/product-details/'.$product->slug) }}" class="product__item-image-inner">
 								<img src="{{ $product->image }}" alt="Product Image" />
 							</a>
 							<div class="product__item-add-cart-btn-outer">
@@ -212,7 +212,7 @@
 							</div>
 						</div>
 						<div class="product__item-info-outer">
-							<a href="{{ url('/product-details/'.$product->id) }}" class="product__item-name">
+							<a href="{{ url('/product-details/'.$product->slug) }}" class="product__item-name">
 								 {{ $product->name }}
 							</a>
 							<div class="product__item-price-outer">
@@ -247,7 +247,7 @@
 					@foreach ($discountProducts as $product)
 											<div class="product__item-outer">
 						<div class="product__item-image-outer">
-							<a href="{{ url('/product-details/'.$product->id) }}" class="product__item-image-inner">
+							<a href="{{ url('/product-details/'.$product->slug) }}" class="product__item-image-inner">
 								<img src="{{ $product->image}}" alt="Product Image" />
 							</a>
 							<div class="product__item-add-cart-btn-outer">
@@ -262,7 +262,7 @@
 							</div>
 						</div>
 						<div class="product__item-info-outer">
-							<a href="{{ url('/product-details/'.$product->id) }}" class="product__item-name">
+							<a href="{{ url('/product-details/'.$product->slug) }}" class="product__item-name">
 								{{ $product->name}}
 							</a>
 							<div class="product__item-price-outer">
