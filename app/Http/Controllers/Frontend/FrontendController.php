@@ -35,8 +35,11 @@ class FrontendController extends Controller
 
    $product = Product::find($id);
 
+   $cartProduct = Cart::where('product_id', $product->id)->where('ip_address', $request->ip())->first();
 
-      $cart = new Cart();
+   if($cartProduct == null)
+      {
+          $cart = new Cart();
 
       $cart->product_id = $product->id;
       $cart->color = $request->color;
@@ -57,13 +60,110 @@ class FrontendController extends Controller
             if(Auth::check())
                {
                   $cart->user_id = Auth::user()->id;
-
                }
                $cart->save();
+      }
+
+      elseif($cartProduct != null)
+         {
+      $cartProduct->color = $request->color;
+      $cartProduct->size = $request->size;
+      $cartProduct->qty = $request->qty;
+
+      if($product->discount_price != null)
+         {
+            $cartProduct->price = $product->discount_price;
+         }
+         else
+            {
+                $cartProduct->price = $product->regular_price;
+            }
+               $cartProduct->save();
+
+         }
+
+
+     
                
                toastr()->success('Added to cart successfully!');
+
+               if($request->action == 'buyNow')
+                  {
+                     return redirect('/checkout');
+                  }
+                  else
+                     {
+                         return redirect()->back();
+                     }
                return redirect()->back();
    }
+
+   public function addtocart(Request $request, $id)
+   {
+      $product = Product::find($id);
+
+   $cartProduct = Cart::where('product_id', $product->id)->where('ip_address', $request->ip())->first();
+
+      if($cartProduct == null)
+      {
+          $cart = new Cart();
+
+      $cart->product_id = $product->id;
+      $cart->qty = 1;
+
+      if($product->discount_price != null)
+         {
+            $cart->price = $product->discount_price;
+         }
+         else
+            {
+                $cart->price = $product->regular_price;
+            }
+
+            $cart->ip_address = $request->ip(); 
+
+            if(Auth::check())
+               {
+                  $cart->user_id = Auth::user()->id;
+               }
+               $cart->save();
+
+                 
+
+      }
+
+            elseif($cartProduct != null)
+         {
+      $cartProduct->qty = 1;
+
+      if($product->discount_price != null)
+         {
+            $cartProduct->price = $product->discount_price;
+         }
+         else
+            {
+                $cartProduct->price = $product->regular_price;
+            }
+               $cartProduct->save();
+
+         }
+
+         toastr()->success('Added to cart successfully!');
+         return redirect()->back();
+
+   }
+
+   public function deleteCart($id)
+   {
+      $cart = Cart::find($id);
+      $cart->delete();
+      
+      return redirect()->back();
+
+
+   }
+
+
    public function shopProducts()
    {
       return view('frontend.shop');

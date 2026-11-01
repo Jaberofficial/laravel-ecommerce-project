@@ -35,6 +35,8 @@ Route::get('/type-products',[FrontendController::class, 'typeProducts']);
 
 //Order Routes
 Route::post('/add-cart-details/{id}',[FrontendController::class, 'addtocartDetailsPage']);
+Route::get('/add-cart/{id}',[FrontendController::class, 'addtocart']);
+Route::get('/delete-cart/{id}',[FrontendController::class, 'deleteCart']);
 
 //Login Routes....
 Route::get('/admin/login', [LoginController::class, 'adminLogin']);
