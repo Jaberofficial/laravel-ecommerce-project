@@ -1,6 +1,8 @@
 @extends('frontend.master')
 
 @section('content')
+
+
 	<main>
 		<!-- /Home Slider -->
 		<section class="home-slider-section">
@@ -44,7 +46,7 @@
 				<div class="categoris-items-wrapper owl-carousel">
 					@foreach ($homeCategories as $category )
 					<a href="{{ url('/category-product') }}" class="categoris-item">
-						<img src="{{$category->image}}" alt="category" />
+						<img src="{{$category->image}}" alt="category"/>
 						<h6 class="categoris-name">
 							{{$category->name}}
 						</h6>

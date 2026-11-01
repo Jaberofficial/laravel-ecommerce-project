@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ContactMessageController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Customer\CustomerController;
@@ -69,6 +71,11 @@ Route::get('/manage/subcategory-edit/{id}', [SubCategoryController::class, 'edit
 Route::post('/manage/subcategory-update/{id}', [SubCategoryController::class, 'update']);
 Route::get('/manage/subcategory-delete/{id}', [SubCategoryController::class, 'delete']);
 
+//Contact Message Routes 
+Route::get('/manage/contact-messages', [ContactMessageController::class, 'getContactMessages']);
+Route::get('/delete/contact-messages/{id}', [ContactMessageController::class, 'deleteContactMessages']);
+
+
  //Product Routes
 Route::get('/manage/product-create',[ProductController::class, 'create']);
 Route::post('/manage/product-store', [ProductController::class, 'store']);
@@ -110,5 +117,13 @@ Route::post('/manage/website-settings/update',[SettingController::class, 'update
 
 Route::get('/manage/website-policy',[SettingController::class, 'managePolicy']);
 Route::post('/manage/website-policy/update',[SettingController::class, 'updatePolicy']);
+
+
+Route::get('/manage/review-list',[ReviewController::class, 'reviewList']);
+Route::get('/manage/review-create',[ReviewController::class, 'reviewCreate']);
+Route::post('/manage/review-store',[ReviewController::class, 'reviewStore']);
+Route::get('/manage/review-edit/{id}',[ReviewController::class, 'reviewEdit']);
+Route::post('/manage/review-update/{id}',[ReviewController::class, 'reviewUpdate']);
+Route::get('/manage/review-delete/{id}',[ReviewController::class, 'reviewDelete']);
 
 });
