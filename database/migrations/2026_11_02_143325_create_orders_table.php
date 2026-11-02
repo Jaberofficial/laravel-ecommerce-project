@@ -1,0 +1,42 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+use function Laravel\Prompts\table;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('orders', function (Blueprint $table) {
+            $table->id();
+            $table->string('ip_address')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->string('invoice_number');
+            $table->string('name');
+            $table->string('phone');
+            $table->double('price');
+            $table->text('address')->nullable();
+            $table->integer('charge');
+            $table->timestamps();
+            $table->string('courier_name')->nullable();
+            $table->string('status')->default('pending')->comment('pending,confirmed,delivered,cancelled,returned');
+            $table->string('tracking_code')->nullable();
+            $table->string('consignment_id')->nullable();
+
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('orders');
+    }
+};
