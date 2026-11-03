@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Foundation\Auth\User as AuthUser;
 use Illuminate\Http\Request;
@@ -94,5 +95,19 @@ unlink('customer/profile/'.basename($authUser->image));
                 toastr()->success("Credential Updated Successfully");
 
                 return redirect()->back();
+    }
+
+    public function customerOrders($status)
+    {
+       if($status == 'all')
+        {
+             $orders = Order::orderBy('id', 'desc')->where('user_id', Auth::user()->id)->get();
+        }
+        else
+            {
+                $orders = Order::orderBy('id', 'desc')->where('status',$status)->where('user_id', Auth::user()->id)->get();
+            }
+        return view('customer.order.list',compact('orders')); 
+
     }
 }

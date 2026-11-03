@@ -107,6 +107,9 @@ Route::middleware(['role:customer'])->group(function(){
     Route::Post('/customer/profile-update', [CustomerController::class, 'customerProfileUpdate']);
     Route::get('/customer/view-credentials', [CustomerController::class, 'customerCredentialView']);
     Route::post('/customer/update-credentials', [CustomerController::class, 'customerCredentialUpdate']);
+
+    // Customer Order Routes
+     Route::get('/customer/orders/{status}',[CustomerController::class, 'customerOrders']);
     
 });
 

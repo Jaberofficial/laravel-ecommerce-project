@@ -23,7 +23,12 @@
               <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-puzzle"></use>
             </svg> Order</a>
           <ul class="nav-group-items compact">
-            <li class="nav-item"><a class="nav-link" href="#"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Accordion</a></li>
+            <li class="nav-item"><a class="nav-link" href="/customer/orders/all"><span class="nav-icon"><span class="nav-icon-bullet"></span></span>All Orders</a></li>
+            <li class="nav-item"><a class="nav-link" href="/customer/orders/pending"><span class="nav-icon"><span class="nav-icon-bullet"></span></span>Pending Orders</a></li>
+            <li class="nav-item"><a class="nav-link" href="/customer/orders/confirmed"><span class="nav-icon"><span class="nav-icon-bullet"></span></span>Confirmed Orders</a></li>
+            <li class="nav-item"><a class="nav-link" href="/customer/orders/delivered"><span class="nav-icon"><span class="nav-icon-bullet"></span></span>Delivered Orders</a></li>
+            <li class="nav-item"><a class="nav-link" href="/customer/orders/cancelled"><span class="nav-icon"><span class="nav-icon-bullet"></span></span>Cancelled Orders</a></li>
+            <li class="nav-item"><a class="nav-link" href="/customer/orders/returned"><span class="nav-icon"><span class="nav-icon-bullet"></span></span>Returned Orders</a></li>
           </ul>
         </li>
 
