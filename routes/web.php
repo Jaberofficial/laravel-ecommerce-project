@@ -141,6 +141,9 @@ Route::get('/manage/review-delete/{id}',[ReviewController::class, 'reviewDelete'
 
 //Order Routes
 Route::get('/manage/orders/{status}',[OrderController::class, 'showOrders']);
+Route::get('/manage/orders-details/{id}',[OrderController::class, 'detailOrders']);
+Route::post('/manage/orders-update/{id}',[OrderController::class, 'updateOrders']);
+Route::post('/manage/orders-details/update/{id}',[OrderController::class, 'updateOrderDetails']);
 
 
 });
