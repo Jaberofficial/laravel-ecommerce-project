@@ -113,6 +113,7 @@ Route::middleware(['role:customer'])->group(function(){
 
     // Customer Order Routes
      Route::get('/customer/orders/{status}',[CustomerController::class, 'customerOrders']);
+     Route::get('/customer/order-cancel/{id}',[CustomerController::class, 'customerOrderCancel']);
     
 });
 

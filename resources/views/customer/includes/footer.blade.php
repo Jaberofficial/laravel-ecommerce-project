@@ -1,4 +1,10 @@
       <footer class="footer px-4 mt-auto">
-        <div><b>© 2026, <a href="{{ url('/') }}">Nittyo Hub</a> All Rights Reserved.</b></div>
-        <div class="ms-auto"><b>Design & Developed by&nbsp;<a href="https://jaberofficial.me/"> jaberofficial</a></b></div>
+              <!--begin::Footer-->
+        <strong>
+          Copyright &copy;
+          <a href="{{ url('https://nittyohub.com/') }}" class="text-decoration-none">Nittyo Hub</a> All rights reserved.
+        </strong> 
+      
+        <!--end::Copyright-->
+
       </footer>

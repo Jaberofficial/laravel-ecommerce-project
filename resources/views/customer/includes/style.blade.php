@@ -26,3 +26,36 @@
     <script src="{{ asset('customer/js/color-modes.js') }}"></script>
     <link href="{{ asset('customer/vendors/@coreui/chartjs/css/coreui-chartjs.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+<style>
+    /* Customer Sidebar - Admin Sidebar Color */
+    #sidebar.sidebar,
+    #sidebar .sidebar-brand,
+    #sidebar .sidebar-nav,
+    #sidebar .nav-group-items {
+        background-color: #343A40 !important;
+    }
+
+    #sidebar.sidebar {
+        border-color: #343A40 !important;
+    }
+
+    /* Sidebar Menu Text & Icon */
+    #sidebar .nav-link,
+    #sidebar .nav-link svg {
+        color: #c2c7d0 !important;
+    }
+
+    /* Sidebar Hover */
+    #sidebar .nav-link:hover {
+        background-color: #3f474e !important;
+        color: #ffffff !important;
+    }
+
+    /* Active Menu */
+    #sidebar .nav-link.active {
+        background-color: #495057 !important;
+        color: #ffffff !important;
+    }
+</style>

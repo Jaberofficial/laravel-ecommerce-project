@@ -1,110 +1,102 @@
 @extends('customer.master')
 
 @section('content')
-      <div class="body flex-grow-1">
+    <div class="body flex-grow-1">
         <div class="container-lg px-4">
-          <div class="row g-4 mb-4">
-            <div class="col-sm-6 col-xl-3">
-              <div class="card text-white bg-primary">
-                <div class="card-body pb-0 d-flex justify-content-between align-items-start">
-                  <div>
-                    <div class="fs-4 fw-semibold">26K <span class="fs-6 fw-normal">(-12.4%
-                        <svg class="icon">
-                          <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-arrow-bottom"></use>
-                        </svg>)</span></div>
-                    <div>Users</div>
-                  </div>
-                  <div class="dropdown">
-                    <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <svg class="icon">
-                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-options"></use>
-                      </svg>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a></div>
-                  </div>
+
+            <div class="row g-4 mb-4">
+
+                {{-- All Orders --}}
+                <div class="col-sm-6 col-xl-4">
+                    <div class="card" style="background-color: #0d6efd; color: #ffffff;">
+                        <div class="card-body pb-0">
+                            <div class="fs-4 fw-semibold">{{ $allOrders}}</div>
+                            <div>All Orders</div>
+                        </div>
+                        <div class="card-body pt-3 pb-3">
+                            <a href="{{ url('/customer/orders/all') }}" class="text-white text-decoration-none small">
+                                View Orders
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
-                  <canvas class="chart" id="card-chart1" height="70"></canvas>
+
+                {{-- Pending Orders --}}
+                <div class="col-sm-6 col-xl-4">
+                    <div class="card" style="background-color: #ffc107; color: #000000;">
+                        <div class="card-body pb-0">
+                            <div class="fs-4 fw-semibold">{{ $pendingOrders}}</div>
+                            <div>Pending Orders</div>
+                        </div>
+                        <div class="card-body pt-3 pb-3">
+                            <a href="{{ url('/customer/orders/pending') }}" class="text-dark text-decoration-none small">
+                                View Orders
+                            </a>
+                        </div>
+                    </div>
                 </div>
-              </div>
+
+                {{-- Confirmed Orders --}}
+                <div class="col-sm-6 col-xl-4">
+                    <div class="card" style="background-color: #0dcaf0; color: #000000;">
+                        <div class="card-body pb-0">
+                            <div class="fs-4 fw-semibold">{{ $confirmedOrders}}</div>
+                            <div>Confirmed Orders</div>
+                        </div>
+                        <div class="card-body pt-3 pb-3">
+                            <a href="{{ url('/customer/orders/confirmed') }}" class="text-dark text-decoration-none small">
+                                View Orders
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Delivered Orders --}}
+                <div class="col-sm-6 col-xl-4">
+                    <div class="card" style="background-color: #198754; color: #ffffff;">
+                        <div class="card-body pb-0">
+                            <div class="fs-4 fw-semibold">{{ $deliveredOrders}}</div>
+                            <div>Delivered Orders</div>
+                        </div>
+                        <div class="card-body pt-3 pb-3">
+                            <a href="{{ url('/customer/orders/delivered') }}" class="text-white text-decoration-none small">
+                                View Orders
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Cancelled Orders --}}
+                <div class="col-sm-6 col-xl-4">
+                    <div class="card" style="background-color: #dc3545; color: #ffffff;">
+                        <div class="card-body pb-0">
+                            <div class="fs-4 fw-semibold">{{ $cancelledOrders}}</div>
+                            <div>Cancelled Orders</div>
+                        </div>
+                        <div class="card-body pt-3 pb-3">
+                            <a href="{{ url('/customer/orders/cancelled') }}" class="text-white text-decoration-none small">
+                                View Orders
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Returned Orders --}}
+                <div class="col-sm-6 col-xl-4">
+                    <div class="card" style="background-color: #6c757d; color: #ffffff;">
+                        <div class="card-body pb-0">
+                            <div class="fs-4 fw-semibold">{{ $returnedOrders}}</div>
+                            <div>Returned Orders</div>
+                        </div>
+                        <div class="card-body pt-3 pb-3">
+                            <a href="{{ url('/customer/orders/returned') }}" class="text-white text-decoration-none small">
+                                View Orders
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <!-- /.col-->
-            <div class="col-sm-6 col-xl-3">
-              <div class="card text-white bg-info">
-                <div class="card-body pb-0 d-flex justify-content-between align-items-start">
-                  <div>
-                    <div class="fs-4 fw-semibold">$6.200 <span class="fs-6 fw-normal">(40.9%
-                        <svg class="icon">
-                          <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-arrow-top"></use>
-                        </svg>)</span></div>
-                    <div>Income</div>
-                  </div>
-                  <div class="dropdown">
-                    <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <svg class="icon">
-                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-options"></use>
-                      </svg>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a></div>
-                  </div>
-                </div>
-                <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
-                  <canvas class="chart" id="card-chart2" height="70"></canvas>
-                </div>
-              </div>
-            </div>
-            <!-- /.col-->
-            <div class="col-sm-6 col-xl-3">
-              <div class="card text-white bg-warning">
-                <div class="card-body pb-0 d-flex justify-content-between align-items-start">
-                  <div>
-                    <div class="fs-4 fw-semibold">2.49% <span class="fs-6 fw-normal">(84.7%
-                        <svg class="icon">
-                          <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-arrow-top"></use>
-                        </svg>)</span></div>
-                    <div>Conversion Rate</div>
-                  </div>
-                  <div class="dropdown">
-                    <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <svg class="icon">
-                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-options"></use>
-                      </svg>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a></div>
-                  </div>
-                </div>
-                <div class="c-chart-wrapper mt-3" style="height:70px;">
-                  <canvas class="chart" id="card-chart3" height="70"></canvas>
-                </div>
-              </div>
-            </div>
-            <!-- /.col-->
-            <div class="col-sm-6 col-xl-3">
-              <div class="card text-white bg-danger">
-                <div class="card-body pb-0 d-flex justify-content-between align-items-start">
-                  <div>
-                    <div class="fs-4 fw-semibold">44K <span class="fs-6 fw-normal">(-23.6%
-                        <svg class="icon">
-                          <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-arrow-bottom"></use>
-                        </svg>)</span></div>
-                    <div>Sessions</div>
-                  </div>
-                  <div class="dropdown">
-                    <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <svg class="icon">
-                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-options"></use>
-                      </svg>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a></div>
-                  </div>
-                </div>
-                <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
-                  <canvas class="chart" id="card-chart4" height="70"></canvas>
-                </div>
-              </div>
-            </div>
-            <!-- /.col-->
-          </div>
         </div>
-      </div>
+    </div>
 @endsection

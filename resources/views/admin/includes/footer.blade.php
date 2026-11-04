@@ -3,7 +3,7 @@
         <!--begin::Copyright-->
         <strong>
           Copyright &copy;
-          <a href="#" class="text-decoration-none">Nittyo Hub</a>.
+          <a href="{{ url('https://nittyohub.com/') }}" class="text-decoration-none">Nittyo Hub</a>
         </strong>
         All rights reserved.
         <!--end::Copyright-->
