@@ -39,7 +39,7 @@
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th style="width: 10px">#</th>
+                                            <th style="width:20px">SL No.</th>
                                             <th>Product</th>
                                             <th>Image</th>
                                             <th>Customer Name</th>

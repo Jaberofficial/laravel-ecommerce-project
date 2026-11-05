@@ -39,7 +39,7 @@
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th style="width: 10px">#</th>
+                                            <th style="width: 10px">SL NO.</th>
                                             <th>SubCategory Name</th>
                                             <th>Category Name</th>
                                             <th style="width: 140px">Action</th>

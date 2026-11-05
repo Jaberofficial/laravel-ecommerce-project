@@ -80,3 +80,84 @@
 <!-- include summernote css/js -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
+
+{{-- Font Awesome CDN --}}
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+      <style>
+        .courier-column {
+    position: relative;
+    width: 85px !important;
+    min-width: 85px !important;
+    padding-left: 10px !important;
+    padding-right: 5px !important;
+}
+
+.courier-name {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    white-space: nowrap;
+}
+
+.courier-btn {
+    position: absolute;
+    top: calc(50% + 20px);
+    left: 12px;
+
+    font-size: 12px;
+    padding: 2px 9px;
+    border-radius: 7px;
+    line-height: 1.5;
+    background: transparent;
+}
+
+.courier-btn:hover {
+    color: white;
+}
+
+/* Current selected status */
+.status-select {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    cursor: pointer;
+    font-size: 12px !important;
+    padding: 5px 8px !important;
+    border-radius: 4px !important;
+    width: auto !important;
+    appearance: auto;
+}
+
+/* Dropdown option colors */
+.status-select option[value="pending"] {
+    color: #ffc107;
+}
+
+.status-select option[value="confirmed"] {
+    color: #17a2b8;
+}
+
+.status-select option[value="processing"] {
+    color: #007bff;
+}
+
+.status-select option[value="shipped"] {
+    color: #17a2b8;
+}
+
+.status-select option[value="delivered"] {
+    color: #28a745;
+}
+
+.status-select option[value="cancelled"] {
+    color: #dc3545;
+}
+
+.status-select option[value="returned"] {
+    color: #6c757d;
+}
+</style>
+

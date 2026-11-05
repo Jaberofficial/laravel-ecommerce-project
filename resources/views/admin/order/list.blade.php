@@ -39,15 +39,15 @@
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th style="width: 10px">#</th>
+                                            <th style="width: 10px">Sl No.</th>
                                             <th>Order Date</th>
                                             <th>Invoice</th>
                                             <th>Customer Info</th>
                                             <th style="width: 125px">Product(s)</th>
                                             <th>Delivery Charge</th>
                                             <th>Total Price</th>
-                                            <th>Courier</th>
                                             <th>Status</th>
+                                            <th>Courier</th>
                                             <th style="width: 140px">Action</th>
                                         </tr>
                                     </thead>
@@ -55,7 +55,7 @@
 
                                         @foreach ($orders as $order)
                                             <tr class="align-middle">
-                                                <td>1</td>
+                                                <td>{{ $loop->index+1 }}</td>
                                                 <td>{{ $order->created_at }}</td>
                                                 <td>{{ $order->invoice_number }}</td>
                                                 <td>
@@ -73,28 +73,66 @@
                                                 </td>
                                                 <td>{{ $order->charge}}</td>
                                                 <td>{{ $order->price}}</td>
-                                                <td>{{ $order->courier_name ?? 'N/A'}}</td>
-                                                <td style="padding-left: 0px;">
-                                                    @php
-                                                        $badgeColor = [
-                                                            'pending' => 'text-warning',
-                                                            'confirmed' => 'text-info',
-                                                            'processing' => 'text-primary',
-                                                            'shipped' => 'text-info',
-                                                            'delivered' => 'text-success',
-                                                            'cancelled' => 'text-danger',
-                                                            'returned' => 'text-secondary',
-                                                        ][$order->status] ?? 'text-secondary';
-                                                    @endphp
+<td style="padding-left: 0px;">
+    @php
+        $badgeColor = [
+            'pending' => 'text-warning',
+            'confirmed' => 'text-info',
+            'processing' => 'text-primary',
+            'shipped' => 'text-info',
+            'delivered' => 'text-success',
+            'cancelled' => 'text-danger',
+            'returned' => 'text-secondary',
+        ][$order->status] ?? 'text-secondary';
+    @endphp
 
-                                                    <span class="badge {{ $badgeColor }}">
-                                                        {{ ucfirst($order->status) }}
+    <form action="{{ url('/manage/orders-status-update/'.$order->id) }}"
+          method="POST"
+          style="margin: 0;">
+        @csrf
+
+        <select name="status"
+                class="badge {{ $badgeColor }} status-select"
+                onchange="this.form.submit()">
+
+            <option value="pending" {{ $order->status == 'pending' ? 'selected' : '' }}>Pending</option>
+            <option value="confirmed" {{ $order->status == 'confirmed' ? 'selected' : '' }}>Confirmed</option>
+            <option value="processing" {{ $order->status == 'processing' ? 'selected' : '' }}>Processing</option>
+            <option value="shipped" {{ $order->status == 'shipped' ? 'selected' : '' }}>Shipped</option>
+            <option value="delivered" {{ $order->status == 'delivered' ? 'selected' : '' }}>Delivered</option>
+            <option value="cancelled" {{ $order->status == 'cancelled' ? 'selected' : '' }}>Cancelled</option>
+            <option value="returned" {{ $order->status == 'returned' ? 'selected' : '' }}>Returned</option>
+
+        </select>
+    </form>
+</td>
+                                                <td class="align-middle position-relative courier-column">
+
+                                                    <span class="courier-name">
+                                                        {{ $order->courier_name ?? 'N/A' }}
                                                     </span>
+
+                                                    @if ($order->courier_name != null && $order->tracking_code == null)
+
+                                                        <a href="{{ url('/manage/orders-courier-entry/'.$order->id) }}"
+                                                            class="btn btn-outline-success courier-btn">
+                                                            <i class="fa-solid fa-paper-plane"></i> Send
+                                                        </a>
+
+                                                    @elseif ($order->tracking_code != null)
+
+                                                        <a href="{{ $order->tracking_code }}" target="_blank"
+                                                            class="btn btn-outline-primary courier-btn">
+                                                            <i class="fa-solid fa-location-dot"></i> Track
+                                                        </a>
+
+                                                    @endif
+
                                                 </td>
                                                 <td>
-                                                    <a href="{{ url('/manage/orders-details/'.$order->id) }}" class="btn btn-primary">Edit</a>
-                                                    <a href="#" class="btn btn-danger"
-                                                        onclick="return confirm('Are you sure?')">Delete</a>
+                                                    <a href="{{ url('/manage/orders-details/'.$order->id) }}"
+                                                        class="btn btn-primary">Edit</a>
+                                                    <a href="{{ url('/manage/orders-delete/'.$order->id) }}" class="btn btn-danger">Delete</a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -117,3 +155,4 @@
     </main>
 
 @endsection
+
