@@ -147,7 +147,7 @@ Route::post('/manage/orders-update/{id}',[OrderController::class, 'updateOrders'
 Route::post('/manage/orders-details/update/{id}',[OrderController::class, 'updateOrderDetails']);
 Route::post('/manage/orders-status-update/{id}',[OrderController::class, 'updateOrderStatus']);
 Route::get('/manage/orders-delete/{id}',[OrderController::class, 'deleteOrder']);
-
+Route::post('/manage/orders-print-bulk',[OrderController::class, 'printBulkInvoice']);
 
 //Courier Entry
 Route::get('/manage/orders-courier-entry/{order_id}',[OrderController::class, 'courierEntry']);

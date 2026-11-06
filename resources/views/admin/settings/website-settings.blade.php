@@ -12,12 +12,6 @@
               <div class="col-sm-6">
                 <h3 class="mb-0">Update Website Setting</h3>
               </div>
-              <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Update Website Setting</li>
-                </ol>
-              </div>
             </div>
             <!--end::Row-->
           </div>
@@ -39,7 +33,7 @@
                 <div class="card card-primary card-outline mb-4">
                   <!--begin::Header-->
                   <div class="card-header">
-                    <div class="card-title">Input Settings Data</div>
+                    <div class="card-title"><b>Input Settings Data</b></div>
                   </div>
                   <!--end::Header-->
                   <!--begin::Form-->

@@ -10,9 +10,21 @@ use Illuminate\Support\Facades\Http;
 
 class OrderController extends Controller
 {
-    public function showOrders($status)
+    public function showOrders(Request $request, $status)
     {
-        if($status == 'all')
+        if(isset($request->search)){
+            if($status == 'all')
+            {
+                 $orders = Order::where('invoice_number', $request->search)->orWhere('phone','Like','%'.$request->search.'%')->orderBy('id', 'desc')->with('orderDetails')->paginate(20);
+            }
+            else
+                {
+                    $orders = Order::where('invoice_number', $request->search)->orWhere('phone','Like','%'.$request->search.'%')->orderBy('id', 'desc')->with('orderDetails')->where('status', $status)->paginate(20);
+                }
+
+        }
+        else{
+            if($status == 'all')
             {
                  $orders = Order::orderBy('id', 'desc')->with('orderDetails')->paginate(20);
             }
@@ -20,8 +32,9 @@ class OrderController extends Controller
                 {
                     $orders = Order::orderBy('id', 'desc')->with('orderDetails')->where('status', $status)->paginate(20);
                 }
+        }
         
-        return view('admin.order.list',compact('orders'));
+        return view('admin.order.list',compact('orders','status'));
     }
 
     public function detailOrders($id)
@@ -142,6 +155,16 @@ class OrderController extends Controller
 
     toastr()->success('Order Deleted Successfully!');
     return redirect()->back();
+}
+
+public function printBulkInvoice(Request $request)
+{
+    $orders = Order::with('orderDetails')->whereIn('id', $request->order_id)->get();
+    foreach($orders as $order){
+        $order->is_printed = true;
+        $order->save();
+    }
+    return view('admin.order.invoice',compact('orders'));
 }
 
 }
